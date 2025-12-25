@@ -8,10 +8,10 @@
 % The Runge-Kutta scheme for an equation:
 %                        dy/dt = f(t,y) 
 %                       y(i+1) = y(i) + (1/6) * (k1 + 2 * k2 + 2 * k3 + k4)
-%                         k1 =  dt * f(t(i),          y(i))  
-%                         k2 =  dt * f(t(i) + 0.5*tx, y(i) + 0.5*k1)  
-%                         k3 =  dt * f(t(i) + 0.5*tx, y(i) + 0.5*k2)
-%                         k4 =  dt * f(t(i) +     tx, y(i) +     k3)
+%                           k1 =  dt * f(t(i),          y(i))  
+%                           k2 =  dt * f(t(i) + 0.5*dt, y(i) + 0.5*k1)  
+%                           k3 =  dt * f(t(i) + 0.5*dt, y(i) + 0.5*k2)
+%                           k4 =  dt * f(t(i) +     dt, y(i) +     k3)
 %
 % Reference book: D. Bradie, A friendly introduction to numerical analysis 
 %
@@ -94,9 +94,9 @@ end
 %%%
 function [dx_dt, dy_dt, dz_dt] = rhs_function(x, y, z, sigma, r, b)
 %
-dx_dt = sigma.*(y - x);
-dy_dt = (r.*x - y - x.*z);
-dz_dt = (x.*y - b.*z);
+dx_dt = sigma *(y - x);
+dy_dt = (r*x - y - x*z);
+dz_dt = (x*y - b*z);
 %
 return
 end
