@@ -4,9 +4,9 @@
 % 1D ODE:  dx/dt = 1 + x/t, x(1) = 1 and t = [1,6];
 % Runge-Kutta method: y(i+1) = y(i) + (1/6) * (k1 + 2 * k2 + 2 * k3 + k4)
 %                         k1 =  dt * f(t(i),          y(i))  
-%                         k2 =  dt * f(t(i) + 0.5*tx, y(i) + 0.5*k1)  
-%                         k3 =  dt * f(t(i) + 0.5*tx, y(i) + 0.5*k2)
-%                         k4 =  dt * f(t(i) +     tx, y(i) +     k3)  
+%                         k2 =  dt * f(t(i) + 0.5*dt, y(i) + 0.5*k1)  
+%                         k3 =  dt * f(t(i) + 0.5*dt, y(i) + 0.5*k2)
+%                         k4 =  dt * f(t(i) +     dt, y(i) +     k3)  
 %
 % An exact solution: x(t) = t * (1 + ln(t));
 %
