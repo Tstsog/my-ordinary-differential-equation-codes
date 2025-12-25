@@ -21,12 +21,6 @@
 % Date: December 25, 2025
 %
 %%%
-%%%
-% Euler's method for f = m*a = m * dˆ2x/dtˆ2 = − k * x
-% dx/dt = v            => x(i+1) = x(i) + dt * v(i)
-% dv/dt = a = −k * x/m => v(i+1) = v(i) + dt *(−k/m) * x(i)
-%
-%%%
 function [] = Newtonian_2nd_law_rk4
 %
 clc; clear Newtonian_2nd_law_rk4
@@ -60,7 +54,7 @@ for i = 1:Nt
     x_k3 = dt * dx_dt_3;
     v_k3 = dt * dv_dt_3;
     %
-    [dx_dt_4, dv_dt_4] = rhs_function(x(i) + 0.5*x_k3, v(i) + 0.5*v_k3, k, m);    
+    [dx_dt_4, dv_dt_4] = rhs_function(x(i) +     x_k3, v(i) +     v_k3, k, m);    
     x_k4 = dt * dx_dt_4;
     v_k4 = dt * dv_dt_4;
     %
@@ -81,7 +75,7 @@ hold of
 box on
 %
 figure(2)
-plot3(t,x,v, 'g-', LineWidth=1.5)
+plot3(t,x,v, 'b-', LineWidth=1.5)
 xlabel('$t$','Interpreter','latex') % ,'fontsize',16
 ylabel('$x$','Interpreter','latex') % ,'fontsize',16
 zlabel('$v$','Interpreter','latex') % ,'fontsize',16
